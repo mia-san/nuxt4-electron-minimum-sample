@@ -1,14 +1,17 @@
 <template>
   <div>
+    <div style="text-align: center;">{{ timestamp }}</div>
     <NuxtWelcome />
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+const timestamp = ref('---- startup ----');
 
-onMounted(async () => {
-  const time = await window.ipcRenderer.invoke('app-start-time')
-  console.log('App start time:', time)
-})
+setInterval(
+  async () => {
+    timestamp.value = await window.ipcRenderer.invoke('app-start-time')
+  },
+  1 * 1000
+);
 </script>
