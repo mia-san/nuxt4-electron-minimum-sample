@@ -1,3 +1,5 @@
+import path from 'path';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -9,6 +11,27 @@ export default defineNuxtConfig({
       {
         // Main-Process entry file of the Electron App.
         entry: 'app/electron/main.ts',
+        vite: {
+          //
+          //  typescript eliminates 'import type', but output 'import' as is,
+          //  e.g.
+          //    import type SomeInterface from '~/InterfaceFolder/SomeInterface'
+          //  is eliminated, where as
+          //    import SomeEnum from '~/EnumFolder/SomeEnum',
+          //    import SomeFunc from '~/FuncFolder/SomeFunc'
+          //  appear in javascript.
+          //
+          //  rollup does not know how to resolve those paths.
+          //    [vite]: Rollup failed to resolve import "~/EnumFolder/SomeEnum" from "/home/user/projects/nuxt4-electron-minimum-sample/app/electron/main.ts".
+          //  so we tell rollup that ~/ means {__dirname}/app/
+          //
+          //  NOTE that path.join(__dirname, 'app') does NOT work.
+          //  beware trailing '/'
+          //
+          resolve: {
+            alias: { '~/': path.join(__dirname, 'app/') },
+          },
+        },
       },
       {
         entry: 'electron/preload.ts',
