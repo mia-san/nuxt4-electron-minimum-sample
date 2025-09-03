@@ -1,0 +1,26 @@
+diff --git a/node_modules/nuxt-electron/dist/index.cjs b/node_modules/nuxt-electron/dist/index.cjs
+index c648a8f..a5f6a89 100644
+--- a/node_modules/nuxt-electron/dist/index.cjs
++++ b/node_modules/nuxt-electron/dist/index.cjs
+@@ -61,7 +61,7 @@ const index = kit.defineNuxtModule({
+         const addressInfo = server.address();
+         Object.assign(process.env, {
+           // This is required, and it is used in Electron-Main.
+-          VITE_DEV_SERVER_URL: `http://localhost:${addressInfo.port}`
++          VITE_DEV_SERVER_URL: `http://localhost:${listener.address.port}`
+         });
+         for (const config of options.build) {
+           config.vite ?? (config.vite = {});
+diff --git a/node_modules/nuxt-electron/dist/index.mjs b/node_modules/nuxt-electron/dist/index.mjs
+index 6c99b83..658c4f4 100644
+--- a/node_modules/nuxt-electron/dist/index.mjs
++++ b/node_modules/nuxt-electron/dist/index.mjs
+@@ -37,7 +37,7 @@ const index = defineNuxtModule({
+         const addressInfo = server.address();
+         Object.assign(process.env, {
+           // This is required, and it is used in Electron-Main.
+-          VITE_DEV_SERVER_URL: `http://localhost:${addressInfo.port}`
++          VITE_DEV_SERVER_URL: `http://localhost:${listener.address.port}`
+         });
+         for (const config of options.build) {
+           config.vite ?? (config.vite = {});
