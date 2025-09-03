@@ -10,7 +10,7 @@ import path from 'node:path'
 // │ │ └── index.js
 // │ ├─┬ renderer
 // │ │ └── index.html
-process.env.APP_ROOT = path.join(__dirname, '..')
+process.env.APP_ROOT = path.join(import.meta.dirname, '..')
 
 export const MAIN_DIST = path.join(process.env.APP_ROOT, 'dist-electron')
 export const RENDERER_DIST = path.join(process.env.APP_ROOT, '.output/public')
