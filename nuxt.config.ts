@@ -12,6 +12,27 @@ export default defineNuxtConfig({
         // Main-Process entry file of the Electron App.
         entry: 'app/electron/main.ts',
         vite: {
+          build: {
+            //
+            //  example 'externalize' node.js modules.
+            //
+            //  suppose you want to use node:sqlite.
+            //  you write your repository class and import the class into main.ts like:
+            //    import { SomethingRepository } from '~/repositories/SomethingRepository.ts';
+            //
+            //  in the repository class,
+            //  you might import node:sqlite like:
+            //    import { DatabaseSync, type SQLOutputValue } from 'node:sqlite';
+            //
+            //  now build fails:
+            //    app/repositories/SomethingRepository.ts (1:9): "DatabaseSync" is not exported by "__vite-browser-external", imported by "app/repositories/SomethingRepository.ts".
+            //
+            //  one of the solutions is 'externalize' such modules.
+            //
+            rollupOptions: {
+              external: ['node:sqlite'],
+            },
+          },
           //
           //  typescript eliminates 'import type', but output 'import' as is,
           //  e.g.
@@ -44,15 +65,17 @@ export default defineNuxtConfig({
     ],
 
     //
-    //  npm run dev requires disableDefaultOptions: true
+    //  it seems that
+    //  - npm run dev requires disableDefaultOptions: true
     //    c.f. https://github.com/caoxiemeihao/nuxt-electron/issues/86 etc
-    //  npm run electron:build requires disableDefaultOptions: false
-    //    otherwise built program does not work.
+    //  - npm run electron:build requires disableDefaultOptions: false
+    //    otherwise built program does not work(in my experience)
     //
-    //  switch disableDefaultOptions on process.env.NODE_ENV,
-    //  assuming
-    //    npm run dev has process.env.NODE_ENV === 'development'
-    //    npm run electron:build has process.env.NODE_ENV === 'production'
+    //  so we need to switch disableDefaultOptions.
+    //
+    //  following assumes
+    //    process.env.NODE_ENV === 'development' on npm run dev
+    //    process.env.NODE_ENV === 'production' on npm run electron:build
     //
     disableDefaultOptions: process.env.NODE_ENV === 'development',
 
