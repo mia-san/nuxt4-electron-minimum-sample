@@ -19,6 +19,20 @@ export default defineNuxtConfig({
         },
       },
     ],
+
+    //
+    //  npm run dev requires disableDefaultOptions: true
+    //    c.f. https://github.com/caoxiemeihao/nuxt-electron/issues/86 etc
+    //  npm run electron:build requires disableDefaultOptions: false
+    //    otherwise built program does not work.
+    //
+    //  switch disableDefaultOptions on process.env.NODE_ENV,
+    //  assuming
+    //    npm run dev has process.env.NODE_ENV === 'development'
+    //    npm run electron:build has process.env.NODE_ENV === 'production'
+    //
+    disableDefaultOptions: process.env.NODE_ENV === 'development',
+
     // Ployfill the Electron and Node.js API for Renderer process.
     // If you want use Node.js in Renderer process, the `nodeIntegration` needs to be enabled in the Main process.
     // See 👉 https://github.com/electron-vite/vite-plugin-electron-renderer
