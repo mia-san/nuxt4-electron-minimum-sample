@@ -39,4 +39,13 @@ export default defineNuxtConfig({
     renderer: {},
   },
   ssr: false, // #43
+  //
+  //  vue-router may not work as expected in history mode.
+  //  use hash mode instead.
+  //
+  router: {
+    options: {
+      hashMode: true,
+    },
+  },
 })
