@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     build: [
       {
         // Main-Process entry file of the Electron App.
-        entry: 'electron/main.ts',
+        entry: 'app/electron/main.ts',
       },
       {
         entry: 'electron/preload.ts',
