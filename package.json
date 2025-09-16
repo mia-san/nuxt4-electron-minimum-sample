@@ -12,7 +12,7 @@
     "postinstall": "nuxt prepare && patch-package"
   },
   "dependencies": {
-    "nuxt": "^4.1.1",
+    "nuxt": "^4.1.2",
     "nuxt-electron": "^0.7.0",
     "vue": "^3.5.20",
     "vue-router": "^4.5.1"
