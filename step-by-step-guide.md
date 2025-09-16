@@ -46,6 +46,7 @@ https://github.com/caoxiemeihao/nuxt-electron/blob/main/quick-start/
 1.  add `version` property to `package.json` for electron-builder.
 
 2.  override `@percel/watcher` at 2.4.1 to make build smooth on `Windows`
+    otherwise `node-gyp` kicks in and start building something.
 
 3.  add "workaround" for [#108](https://github.com/caoxiemeihao/nuxt-electron/issues/108)
 
