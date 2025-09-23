@@ -2,8 +2,8 @@
 
 minimum sample project with nuxt4 and electron.
 
-`npm run dev` should start development build.
-`npm run electron:build` should build 'installer'.
+- `npm run dev` should start development build.
+- `npm run electron:build` should build 'installer'.
 
 please feel free to clone, fork, modify etc.
 
@@ -17,5 +17,5 @@ thanks for [nuxt-electron](https://github.com/caoxiemeihao/nuxt-electron)
 
 - nuxt 4.1.2
 - nuxt-electron 0.7.0
-- electron 37.4.0
+- electron 38.1.2
 - electron-builder 26.0.12
