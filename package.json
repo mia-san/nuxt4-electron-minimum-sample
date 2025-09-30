@@ -14,11 +14,11 @@
   "dependencies": {
     "nuxt": "^4.1.2",
     "nuxt-electron": "^0.7.0",
-    "vue": "^3.5.20",
+    "vue": "^3.5.22",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "electron": "^38.1.2",
+    "electron": "^38.2.0",
     "electron-builder": "^26.0.12",
     "patch-package": "^8.0.0",
     "vite-plugin-electron": "^0.29.0",

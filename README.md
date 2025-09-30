@@ -11,11 +11,12 @@ see [step-by-step-guide.md](https://github.com/mia-san/nuxt4-electron-minimum-sa
 
 nuxt3 should work in almost same steps.
 
-thanks for [nuxt-electron](https://github.com/caoxiemeihao/nuxt-electron)
+thanks to [nuxt-electron](https://github.com/caoxiemeihao/nuxt-electron)
 
 # what's inside
 
+- electron 38.2.0
+- electron-builder 26.0.12
 - nuxt 4.1.2
 - nuxt-electron 0.7.0
-- electron 38.1.2
-- electron-builder 26.0.12
+- vue 3.5.22
