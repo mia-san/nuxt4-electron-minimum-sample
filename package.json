@@ -20,7 +20,7 @@
   "devDependencies": {
     "electron": "^38.2.0",
     "electron-builder": "^26.0.12",
-    "patch-package": "^8.0.0",
+    "patch-package": "^8.0.1",
     "vite-plugin-electron": "^0.29.0",
     "vite-plugin-electron-renderer": "^0.14.6"
   },
