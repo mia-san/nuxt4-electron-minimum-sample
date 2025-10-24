@@ -15,8 +15,8 @@ thanks to [nuxt-electron](https://github.com/caoxiemeihao/nuxt-electron)
 
 # what's inside
 
-- electron 38.2.1
+- electron 38.4.0
 - electron-builder 26.0.12
-- nuxt 4.1.2
+- nuxt 4.1.3
 - nuxt-electron 0.7.0
 - vue 3.5.22
