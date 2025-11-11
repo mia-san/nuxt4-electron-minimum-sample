@@ -18,7 +18,7 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "electron": "^39.1.1",
+    "electron": "^39.1.2",
     "electron-builder": "^26.0.12",
     "patch-package": "^8.0.1",
     "vite-plugin-electron": "^0.29.0",
